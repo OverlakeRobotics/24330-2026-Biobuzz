@@ -19,6 +19,7 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
     private DcMotor frontRightDrive = null;
     private DcMotor backRightDrive = null;
 
+    private DcMotor intake;
 
     @Override
     public void runOpMode() {
@@ -29,14 +30,14 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
         backLeftDrive = hardwareMap.get(DcMotor.class, "back_left_drive");
         frontRightDrive = hardwareMap.get(DcMotor.class, "front_right_drive");
         backRightDrive = hardwareMap.get(DcMotor.class, "back_right_drive");
-        flywheel = hardwareMap.get(DcMotor.class, "flywheel"); // ISNTALL MOTOR
+        intake = hardwareMap.get(DcMotor.class, "intake"); // ISNTALL MOTOR
 
 
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
-        flywheel.setDirection(DcMotor.Direction.FORWARD); // INSTALL MOTOR
+        intake.setDirection(DcMotor.Direction.FORWARD); // INSTALL MOTOR
 
         // wait for the game to start(when START is pressed by driver)
         telemetry.addData("Status", "Initialized");
@@ -60,13 +61,13 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
             double backLeftPower   = axial - lateral + yaw;
             double backRightPower  = axial + lateral - yaw;
 
-            flywheel = gamepad1.a ? 1.0 : 0.0; // INSTALL MOTOR
+            double intake_value = gamepad1.a ? 1.0 : 0.0; // INSTALL MOTOR
 
             frontLeftDrive.setPower(frontLeftPower);
             frontRightDrive.setPower(frontRightPower);
             backLeftDrive.setPower(backLeftPower);
             backRightDrive.setPower(backRightPower);
-            flywheel.setPower(flywheel); // INSTALL MOTOR
+            intake.setPower(intake_value); // INSTALL MOTOR
 
             // shows the elapsed game time
             telemetry.addData("Status", "Run Time: " + runtime.toString());
@@ -75,4 +76,4 @@ public class BasicOmniOpMode_Linear extends LinearOpMode {
             telemetry.update();
         }
     }}
-// wsg guru
+//the width of the intake is 10 and 3 quarter inches, ramzesty don't delete this
