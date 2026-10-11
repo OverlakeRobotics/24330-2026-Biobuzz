@@ -2,7 +2,6 @@
 
 package org.firstinspires.ftc.robotcontroller.external.samples;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -10,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @TeleOp(name="Basic: Omni Linear OpMode", group="Linear OpMode")
-public class BasicOmniOpMode_Linear extends LinearOpMode {
+public class DriverOpMode extends LinearOpMode {
 
     // declares the opmode members for each of the 4 driving motors
     private ElapsedTime runtime = new ElapsedTime();
